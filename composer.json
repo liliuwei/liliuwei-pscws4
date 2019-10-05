@@ -1,0 +1,19 @@
+{
+    "name": "liliuwei/liliuwei-pscws4",
+    "description": "PSCWS4中文分词扩展",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "liliuwei",
+            "email": "974829947@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "liliuwei\\pscws4\\": "src/"
+        }
+    }
+}
