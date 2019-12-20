@@ -15,8 +15,9 @@ class PSCWS4API
 //$cws->set_debug(true);
 //$cws->set_duality(true);
         $cws->send_text($text);
+        $tags = [];
         while ($words = $cws->get_result()) {
-            foreach ($words as $val) {
+            foreach ((array)$words as $val) {
                 if (preg_match("/['.,:;*?~`!@#$%^&+=)(<>{}]|\]|\[|\/|\\\|\"|\|/", $val['word'])) continue;
                 $tags[] = trim($val['word']);
             }
@@ -38,7 +39,8 @@ class PSCWS4API
         $cws->send_text($text);
         $words = $cws->get_tops($limit);
         $cws->close();
-        foreach ($words as $val) {
+        $tags = [];
+        foreach ((array)$words as $val) {
             if (preg_match("/['.,:;*?~`!@#$%^&+=)(<>{}]|\]|\[|\/|\\\|\"|\|/", $val['word'])) continue;
             $tags[] = trim($val['word']);
         }
