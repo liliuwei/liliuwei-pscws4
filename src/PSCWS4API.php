@@ -10,10 +10,6 @@ class PSCWS4API
         $cws = new PSCWS4('utf8');
         $cws->set_dict(__DIR__ . '/etc/dict.utf8.xdb');
         $cws->set_rule(__DIR__ . '/etc/rules.utf8.ini');
-//$cws->set_multi(3);
-//$cws->set_ignore(true);
-//$cws->set_debug(true);
-//$cws->set_duality(true);
         $cws->send_text($text);
         $tags = [];
         while ($words = $cws->get_result()) {
@@ -32,10 +28,6 @@ class PSCWS4API
         $cws = new PSCWS4('utf8');
         $cws->set_dict(__DIR__ . '/etc/dict.utf8.xdb');
         $cws->set_rule(__DIR__ . '/etc/rules.utf8.ini');
-//$cws->set_multi(3);
-//$cws->set_ignore(true);
-//$cws->set_debug(true);
-//$cws->set_duality(true);
         $cws->send_text($text);
         $words = $cws->get_tops($limit);
         $cws->close();
@@ -50,7 +42,6 @@ class PSCWS4API
     //提取中文
     public function get_chianese($text)
     {
-//    $text='iphone6背夹充电宝电池6s蘋果6plus便携移动电源手机壳6p';
         preg_match_all("/([\x{4e00}-\x{9fa5}]+)/u", $text, $match);
         $result = implode(' ', $match[0]);
         return $result;
